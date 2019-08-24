@@ -118,3 +118,13 @@ int main(){
 
 
 }
+
+
+/*
+Status:solved
+
+steps to solve:
+1.assign the value of sum to the start point of array
+2.assign the negative value to end of array to mark the end.
+3.calculate prefix sum and find max as largest prefix sum
+*/
