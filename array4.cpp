@@ -82,6 +82,89 @@ So, we need a minimum of  swaps to sort the array in ascending order.
 
 using namespace std;
 
-int main(){
+int minimumSwaps(vector<int> arr) {
+
+    int minimumSwaps = 0;
+    pair<int,int> arrPos[arr.size()];
+    vector<bool> vis(arr.size(),false);
     
+        for (int i = 0;i <arr.size();i++)
+        {
+            arrPos[i].first = arr[i];
+            arrPos[i].second = i;
+  
+        }
+        
+        cout<<endl;
+
+        sort(arrPos,arrPos+arr.size());
+        
+        for(int i = 0;i<arr.size();i++)
+        {
+            // already swapped and corrected or 
+        // already present at correct pos 
+        if (vis[i] || arrPos[i].second == i) 
+            continue; 
+  
+        // find out the number of  node in 
+        // this cycle and add in ans 
+        int cycle_size = 0; 
+        int j = i; 
+        while (!vis[j]) 
+        { 
+            cout<<j;
+            vis[j] = 1; 
+  
+            // move to next node 
+            j = arrPos[j].second; 
+            cycle_size++; 
+        } 
+        cout<<endl;
+  
+        // Update answer by adding current cycle.  
+        if (cycle_size > 0) 
+        { 
+            minimumSwaps += (cycle_size - 1); 
+        } 
+    } 
+        
+
+
+
+        
+       return minimumSwaps;
+
+
+
 }
+
+int main(){
+
+    vector<int> v{1,3,5,2,4,6,7};
+
+    vector<int> s{4,3,1,2};
+
+    vector<int> s1{7,1,3,2,4,5,6};
+
+    vector<int> s2{2,4,5,1,3};
+
+    cout<<minimumSwaps(s1)<<endl;
+    // cout<<minimumSwaps(s1)<<endl;;
+
+    // cout<<minimumSwaps(s)<<endl;
+
+
+}
+
+
+/*
+   The key idea is to map all the cycles and tha pattern of swaps will be known to you 
+   once you form the cycles.
+
+   steps:
+   1.created a sorted array of original array with their positions.
+   2.with the sorted array,find the position linking to each other unless it completes a 
+    cycle,once it completes the cycle break the loop.
+   3.go for unvisited elements remain untouched in cycle.
+   4.you got minimum swaps just keep counting nodes in cycle-1.
+*/
