@@ -61,7 +61,83 @@ There are  days of data required so the first day a notice might go out is day .
 
 using namespace std;
 
+
+// double median(vector<int> trail,int begin,int end)
+// {
+//         int n = end+begin;
+//         double median;
+
+      
+//         if(n%2 ==0)
+//         {
+//             median = (trail[n/2-1]+trail[n/2])/2.0;
+
+//         }
+//         else{
+//             median = trail[n/2];
+//             cout<<"hello";
+//         }
+//         cout<<median<<endl;
+//         return median;
+
+// }
+
+int activityNotifications(vector<int> expenditure, int d) {
+
+    int notification = 0;
+
+    vector<int> trail = expenditure;
+    sort(trail.begin(),trail.end());
+
+    if(d<expenditure.size()){
+        
+        for(int i = 0;i<expenditure.size()-d;i++)
+        {
+            double median;
+
+            int n = i+(i+d)-1;
+            
+
+        
+            if(n%2 ==0)
+            {
+                median = (trail[n/2-1]+trail[n/2])/2.0;
+
+            }
+            else{
+                median = trail[n/2];
+                
+            }
+
+            if(expenditure[i+d]>= 2*median){
+                notification++;
+            }
+
+        }
+    }
+
+    return notification;
+
+
+
+
+}
+
 int main(){
 
-    
+    int numberOfDays,trailingDays;
+
+    cin>>numberOfDays>>trailingDays;
+
+    vector<int> v(numberOfDays);
+
+    for(int i =0;i<numberOfDays;i++)
+    {
+        cin>>v[i];
+    }
+
+    cout<<activityNotifications(v,trailingDays)<<endl;
+
+
+
 }
