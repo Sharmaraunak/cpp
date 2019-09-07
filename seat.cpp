@@ -68,19 +68,19 @@ int main(){
             cout<<n+1<<" WS"<<endl;
             break;
         case 7:
-            cout<<n-1<<" MS"<<endl;
+            cout<<n-1<<" WS"<<endl;
             break;
         case 8:
-            cout<<n-3<<" AS"<<endl;
+            cout<<n-3<<" MS"<<endl;
             break;
         case 9:
             cout<<n-5<<" AS"<<endl;
             break;
         case 10:
-            cout<<n-7<<" MS"<<endl;
+            cout<<n-7<<" AS"<<endl;
             break;
         case 11:
-            cout<<n-9<<" WS"<<endl;
+            cout<<n-9<<" MS"<<endl;
             break;
         default:
             break;
