@@ -24,6 +24,7 @@ pop() removes and returns the last item in the list. It needs nothing and return
 pop(pos) removes and returns the item at position pos. It needs the position and returns the item. Assume the item is in the list.
 */
 
+
 #include<bits/std++.h>
 
 using namespace std;
